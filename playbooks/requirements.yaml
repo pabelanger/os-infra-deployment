@@ -1,0 +1,8 @@
+# ansible-role-diskimage-builder
+- src: https://github.com/pabelanger/ansible-role-diskimage-builder
+
+# ansible-role-nodepool
+- src: https://github.com/pabelanger/ansible-role-nodepool
+
+# ansible-role-zuul
+- src: https://github.com/pabelanger/ansible-role-zuul

@@ -1,0 +1,5 @@
+*.egg-info/
+.tox/
+AUTHORS
+ChangeLog
+playbooks/roles

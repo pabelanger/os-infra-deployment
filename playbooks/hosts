@@ -1,0 +1,2 @@
+nodepool ansible_ssh_host=10.16.19.214
+zuul ansible_ssh_host=10.16.19.215

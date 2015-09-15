@@ -1,0 +1,3 @@
+---
+- include: zuul-install.yaml
+- include: nodepool-install.yaml
