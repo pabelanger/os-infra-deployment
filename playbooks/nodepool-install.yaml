@@ -14,4 +14,7 @@
       retries: 3
 
   roles:
+    - ansible-role-diskimage-builder
     - ansible-role-nodepool
+  vars_files:
+    - vars/nodepool.yaml
