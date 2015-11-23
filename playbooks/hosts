@@ -1,2 +1,5 @@
+[nodepool]
 nodepool ansible_ssh_host=10.16.19.130
+
+[zuul]
 zuul ansible_ssh_host=10.16.19.138

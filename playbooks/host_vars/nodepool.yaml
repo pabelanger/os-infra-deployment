@@ -1,12 +1,9 @@
 ---
 diskimage_builder_install_method: pip
 
-nodepool_config_elements_dir: /opt/git/openstack-infra/project-config/nodepool/elements
-nodepool_config_script_dir: /opt/git/openstack-infra/project-config/nodepool/scripts
 nodepool_config_gearman_servers:
-  - host: 10.16.19.215
+  - host: "{{ hostvars.zuul.ansible_ssh_host }}"
     port: 4730
-
 
 nodepool_template_nodepool_yaml_contents: |
   diskimages:
@@ -16,7 +13,7 @@ nodepool_template_nodepool_yaml_contents: |
         - vm
     - name: fedora-21
       elements:
-        - fedora-minimal
+        - fedora
         - vm
       release: 21
     - name: ubuntu-trusty
@@ -59,7 +56,5 @@ nodepool_template_nodepool_yaml_contents: |
 
   targets:
     - name: jenkins1
-      jenkins:
-        url: http://10.16.19.216:8080
-        user: admin
-        apikey: 22d6b56d4f4ebbccb1ea3d0ee1fa4d1c
+
+nginx_config_include_files: files/nodepool/etc/nginx/conf.d/
