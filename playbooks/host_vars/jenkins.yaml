@@ -1,0 +1,2 @@
+---
+nginx_config_include_files: files/jenkins/etc/nginx/conf.d/
