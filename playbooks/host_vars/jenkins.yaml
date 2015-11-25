@@ -1,2 +1,5 @@
 ---
 nginx_config_include_files: files/jenkins/etc/nginx/conf.d/
+
+ssh_user_name: jenkins
+ssh_user_home: /var/lib/jenkins

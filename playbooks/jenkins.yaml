@@ -16,3 +16,6 @@
   roles:
     - ansible-role-jenkins
     - ansible-role-nginx
+    - ansible-role-ssh
+  vars_files:
+    - vars/jenkins.yaml

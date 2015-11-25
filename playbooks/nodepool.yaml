@@ -16,6 +16,7 @@
   roles:
     - ansible-role-diskimage-builder
     - ansible-role-nodepool
+    - ansible-role-ssh
     - ansible-role-nginx
   vars_files:
     - vars/nodepool.yaml

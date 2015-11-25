@@ -15,5 +15,6 @@
 
   roles:
     - ansible-role-zuul
+    - ansible-role-ssh
   vars_files:
     - vars/zuul.yaml

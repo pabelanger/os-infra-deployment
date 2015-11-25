@@ -5,22 +5,22 @@ nodepool_config_gearman_servers:
   - host: "{{ hostvars.zuul.ansible_ssh_host }}"
     port: 4730
 
+nodepool_config_zmq_publishers:
+  - "tcp://{{ hostvars.jenkins.ansible_ssh_host }}:8888"
+
 nodepool_template_nodepool_yaml_contents: |
   diskimages:
     - name: centos-7
       elements:
         - centos7
         - vm
+        - tox
     - name: fedora-21
       elements:
         - fedora
         - vm
+        - tox
       release: 21
-    - name: ubuntu-trusty
-      elements:
-        - ubuntu-minimal
-        - vm
-      release: trusty
 
   labels:
     - name: centos-7
@@ -33,11 +33,6 @@ nodepool_template_nodepool_yaml_contents: |
       min-ready: 1
       providers:
         - name: oslab
-    - name: ubuntu-trusty
-      image: ubuntu-trusty
-      min-ready: 1
-      providers:
-        - name: oslab
 
   providers:
     - name: oslab
@@ -47,14 +42,20 @@ nodepool_template_nodepool_yaml_contents: |
         - name: centos-7
           min-ram: 8192
           diskimage: centos-7
+          private-key: /var/lib/nodepool/.ssh/id_rsa
+          username: root
         - name: fedora-21
           min-ram: 8192
           diskimage: fedora-21
-        - name: ubuntu-trusty
-          min-ram: 8192
-          diskimage: ubuntu-trusty
+          private-key: /var/lib/nodepool/.ssh/id_rsa
+          username: root
 
   targets:
     - name: jenkins1
 
 nginx_config_include_files: files/nodepool/etc/nginx/conf.d/
+
+ssh_user_name: nodepool
+ssh_user_home: /var/lib/nodepool
+ssh_key_public_content: |
+  ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCmRis9o4HCoVNZB0tzDUBWU+t/N15PeZ2X7/NVz4J0C1BXA8eNUZtRTpx0hP6kiPpR5DeLTMyo5GzgDPR1+o8ZsTarmZfxYlxpImaPl3WGEkR3jX0zS2eris6nI6c5BthkInwNYPpW6L5K3F6OaC45U6guxAEszzmH3mKI5nhVgWnxOjyUzqJ3PjOKoH7ClrSa2L3YaOa3N3swoplux3zRCwA55b5fAdRE0aBKlHBpsOFeuGINKXFpONpB2GHMa8mYBOmOi9g4vi+nRyuxcD9TiRfcfiVH9dlMxI9nAnTJwPJLyaRKfewT5N33lK9oYVbtYvNeSapLcyZQETAk6hvW1nhuqYuKnlB8sRdueeWeZTDzGbUq8sKoovv83ZOr7bvL3EWrdeem8fAMxA8gqJgKPXe5Dy7DxFY0+3J7yKUgrMwEqFP9kM1t54sIYWTyJS8wL4WzS+UjMFj1YyX5rN9UcCTjT5iiWfcTLUGqm0nVMQ2Z9wowgq87itjq+T90IbHNwljfKhIQG+DYhq1mI89PGx2ZlS+PM/R8Q6CB7X0fc8FFVeIpwolN6RK2JA60uQBLvZ8AkiRc0YXLFeugmvzsJA3RpHuIteYEADQWhOqbOKElDDcmAlgzs1JBZlqZtfoLIHot/wwvbkVRyokLZ3D1uF9Hs5qQqTR1D1hUWKXjgQ== nodepool@example.org
