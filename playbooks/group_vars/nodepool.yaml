@@ -8,7 +8,8 @@ nodepool_config_gearman_servers:
 nodepool_config_zmq_publishers:
   - "tcp://{{ hostvars.jenkins.ansible_ssh_host }}:8888"
 
-nodepool_project_config_dir: /home/pabelanger/git/pabelanger/config/nodepool/
+nodepool_elements_dir: /home/pabelanger/git/pabelanger/config/nodepool/elements/
+nodepool_scripts_dir: /home/pabelanger/git/pabelanger/config/nodepool/scripts/
 
 nodepool_template_nodepool_yaml_contents: "{{ lookup('file', '/home/pabelanger/git/pabelanger/config/nodepool/nodepool.yaml') }}"
 
