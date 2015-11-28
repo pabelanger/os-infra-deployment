@@ -8,50 +8,9 @@ nodepool_config_gearman_servers:
 nodepool_config_zmq_publishers:
   - "tcp://{{ hostvars.jenkins.ansible_ssh_host }}:8888"
 
-nodepool_template_nodepool_yaml_contents: |
-  diskimages:
-    - name: centos-7
-      elements:
-        - centos7
-        - vm
-        - tox
-    - name: fedora-21
-      elements:
-        - fedora
-        - vm
-        - tox
-      release: 21
+nodepool_project_config_dir: /home/pabelanger/git/pabelanger/config/nodepool/
 
-  labels:
-    - name: centos-7
-      image: centos-7
-      min-ready: 1
-      providers:
-        - name: oslab
-    - name: fedora-21
-      image: fedora-21
-      min-ready: 1
-      providers:
-        - name: oslab
-
-  providers:
-    - name: oslab
-      cloud: oslab
-      max-servers: 6
-      images:
-        - name: centos-7
-          min-ram: 8192
-          diskimage: centos-7
-          private-key: /var/lib/nodepool/.ssh/id_rsa
-          username: root
-        - name: fedora-21
-          min-ram: 8192
-          diskimage: fedora-21
-          private-key: /var/lib/nodepool/.ssh/id_rsa
-          username: root
-
-  targets:
-    - name: jenkins1
+nodepool_template_nodepool_yaml_contents: "{{ lookup('file', '/home/pabelanger/git/pabelanger/config/nodepool/nodepool.yaml') }}"
 
 nginx_config_include_files: files/nodepool/etc/nginx/conf.d/
 
