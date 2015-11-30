@@ -1,4 +1,8 @@
 ---
+jenkins_cli_plugins:
+  - gearman-plugin
+  - zmq-event-publisher
+
 nginx_config_include_files: files/jenkins/etc/nginx/conf.d/
 
 ssh_user_name: jenkins

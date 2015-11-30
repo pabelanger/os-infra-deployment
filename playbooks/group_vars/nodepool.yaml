@@ -6,7 +6,8 @@ nodepool_config_gearman_servers:
     port: 4730
 
 nodepool_config_zmq_publishers:
-  - "tcp://{{ hostvars.jenkins.ansible_ssh_host }}:8888"
+  - tcp://{{ hostvars.jenkins01.ansible_ssh_host }}:8888
+  - tcp://{{ hostvars.jenkins02.ansible_ssh_host }}:8888
 
 nodepool_elements_dir: /home/pabelanger/git/pabelanger/config/nodepool/elements/
 nodepool_scripts_dir: /home/pabelanger/git/pabelanger/config/nodepool/scripts/

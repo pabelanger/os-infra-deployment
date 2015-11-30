@@ -1,5 +1,6 @@
 [jenkins]
-jenkins ansible_ssh_host=10.16.18.251
+jenkins01 ansible_ssh_host=10.16.18.251
+jenkins02 ansible_ssh_host=10.16.19.177
 
 [nodepool]
 nodepool ansible_ssh_host=10.16.19.130
