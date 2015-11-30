@@ -3,5 +3,7 @@ zuul_config_gearman_server_listen_address: 0.0.0.0
 zuul_config_gerrit_server: review.openstack.org
 zuul_config_gerrit_user: ufuktron
 
+zuul_project_config_dir: /home/pabelanger/git/pabelanger/config/zuul/
+
 ssh_user_name: zuul
 ssh_user_home: /var/lib/zuul
