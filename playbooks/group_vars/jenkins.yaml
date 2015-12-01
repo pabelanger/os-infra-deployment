@@ -3,6 +3,8 @@ jenkins_cli_plugins:
   - gearman-plugin
   - zmq-event-publisher
 
+jenkins_jobs_project_config_dir: /home/pabelanger/git/pabelanger/config/jenkins/jobs/
+
 nginx_config_include_files: files/jenkins/etc/nginx/conf.d/
 
 ssh_user_name: jenkins
