@@ -1,5 +1,6 @@
 ---
 diskimage_builder_install_method: pip
+diskimage_builder_pip_version: 1.4.0
 
 nodepool_config_gearman_servers:
   - host: "{{ hostvars.zuul.ansible_ssh_host }}"
