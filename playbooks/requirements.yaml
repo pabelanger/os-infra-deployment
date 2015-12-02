@@ -4,11 +4,20 @@
 # ansible-role-jenkins
 - src: https://github.com/pabelanger/ansible-role-jenkins
 
+# ansible-role-jenkins-cli
+- src: https://github.com/pabelanger/ansible-role-jenkins-cli
+
+# ansible-role-jenkins-jobs
+- src: https://github.com/pabelanger/ansible-role-jenkins-jobs
+
 # ansible-role-ngnix
 - src: https://github.com/pabelanger/ansible-role-ngnix
 
 # ansible-role-nodepool
 - src: https://github.com/openstack/ansible-role-nodepool
+
+# ansible-role-ssh
+- src: https://github.com/pabelanger/ansible-role-ssh
 
 # ansible-role-zuul
 - src: https://github.com/pabelanger/ansible-role-zuul
