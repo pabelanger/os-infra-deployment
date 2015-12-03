@@ -3,7 +3,7 @@ jenkins_cli_plugins:
   - gearman-plugin
   - zmq-event-publisher
 
-jenkins_cli_groovy_dir: files/jenkins/var/lib/jenkins/.scripts/
+jenkins_groovy_init_dir: files/jenkins/var/lib/jenkins/init.groovy.d/
 
 jenkins_jobs_project_config_dir: /home/pabelanger/git/pabelanger/config/jenkins/jobs/
 

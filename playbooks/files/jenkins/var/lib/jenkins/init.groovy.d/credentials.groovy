@@ -14,6 +14,6 @@ credentials = new BasicSSHUserPrivateKey(
     "jenkins",
     new BasicSSHUserPrivateKey.UsersPrivateKeySource(),
     "",
-    "<!-- Managed by Ansible -->"
+    "Managed by Ansible"
 )
 credentials_store.addCredentials(domain, credentials)

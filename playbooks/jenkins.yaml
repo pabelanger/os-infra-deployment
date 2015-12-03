@@ -29,7 +29,7 @@
     - ansible-role-jenkins
     - ansible-role-nginx
     - ansible-role-ssh
-    - ansible-role-jenkins-cli
+    - ansible-role-jenkins-groovy
     - ansible-role-jenkins-jobs
 
   post_tasks:
