@@ -31,5 +31,21 @@
     - ansible-role-ssh
     - ansible-role-jenkins-cli
     - ansible-role-jenkins-jobs
+
+  post_tasks:
+    - name: copy jenkins configuration.
+      copy:
+        dest: /var/lib/jenkins
+        group: jenkins
+        mode: 0444
+        owner: jenkins
+        src: files/jenkins/var/lib/jenkins/{{ item }}
+      with_items:
+        - hudson.plugins.gearman.GearmanPluginConfig.xml
+        - org.jenkinsci.main.modules.sshd.SSHD.xml
+        - org.jenkinsci.plugins.ZMQEventPublisher.HudsonNotificationProperty.xml
+      notify: Restart jenkins
+      sudo: yes
+
   vars_files:
     - vars/jenkins.yaml
