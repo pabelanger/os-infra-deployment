@@ -4,11 +4,13 @@ import com.cloudbees.plugins.credentials.CredentialsScope;
 import com.cloudbees.jenkins.plugins.sshcredentials.impl.BasicSSHUserPrivateKey;
 
 domain = Domain.global()
+
 credentials_store =
     Jenkins.instance.getExtensionList(
         'com.cloudbees.plugins.credentials.SystemCredentialsProvider'
     )[0].getStore()
-credentials = new BasicSSHUserPrivateKey(
+
+creds = new BasicSSHUserPrivateKey(
     CredentialsScope.GLOBAL,
     "9292f6a1-ebc6-40e8-80da-b8940261cdce",
     "jenkins",
@@ -16,4 +18,5 @@ credentials = new BasicSSHUserPrivateKey(
     "",
     "Managed by Ansible"
 )
-credentials_store.addCredentials(domain, credentials)
+
+credentials_store.addCredentials(domain, creds)
