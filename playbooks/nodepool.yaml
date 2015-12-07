@@ -13,6 +13,13 @@
       until: ssh_wait_check|success
       retries: 3
 
+      # https://bugzilla.redhat.com/show_bug.cgi?id=1289073
+    - name: Enable CR repository for libunwind
+      yum:
+        enablerepo: cr
+        name: libunwind
+      sudo: yes
+
   roles:
     - ansible-role-diskimage-builder
     - ansible-role-nodepool

@@ -13,7 +13,6 @@
       until: ssh_wait_check|success
       retries: 3
 
-  pre_tasks:
     - name: Install Jenkins repo.
       copy:
         src: files/jenkins/etc/yum.repos.d/jenkins.repo
@@ -25,14 +24,21 @@
         key: http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
       sudo: yes
 
+      # https://bugzilla.redhat.com/show_bug.cgi?id=1289073
+    - name: Enable CR repository for libunwind
+      yum:
+        enablerepo: cr
+        name: libunwind
+      sudo: yes
+
   roles:
     - ansible-role-jenkins
     - ansible-role-nginx
     - ansible-role-ssh
-    - ansible-role-jenkins-groovy
-    - ansible-role-jenkins-jobs
+      #    - ansible-role-jenkins-groovy
+      #    - ansible-role-jenkins-jobs
 
-  post_tasks:
+  tasks:
     - name: copy jenkins configuration.
       copy:
         dest: /var/lib/jenkins
