@@ -35,7 +35,7 @@
     - ansible-role-jenkins
     - ansible-role-nginx
     - ansible-role-ssh
-      #    - ansible-role-jenkins-groovy
+    - ansible-role-jenkins-groovy
       #    - ansible-role-jenkins-jobs
 
   tasks:
