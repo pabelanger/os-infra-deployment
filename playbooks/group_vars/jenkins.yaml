@@ -1,5 +1,5 @@
 ---
-jenkins_cli_plugins:
+jenkins_plugins_list:
   - gearman-plugin
   - zmq-event-publisher
 
