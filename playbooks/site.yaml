@@ -1,4 +1,4 @@
 ---
-- include: zuul.yaml
 - include: jenkins.yaml
 - include: nodepool.yaml
+- include: zuul.yaml
