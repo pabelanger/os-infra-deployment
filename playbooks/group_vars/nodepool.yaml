@@ -1,4 +1,14 @@
 ---
+logrotate_configs:
+  - name: nodepool
+    log: /var/log/nodepool/*.log
+    options:
+      - compress
+      - missingok
+      - rotate 7
+      - daily
+      - notifempty
+
 diskimage_builder_install_method: pip
 diskimage_builder_pip_version: 1.4.0
 

@@ -1,4 +1,14 @@
 ---
+logrotate_configs:
+  - name: zuul
+    log: /var/log/zuul/*.log
+    options:
+      - compress
+      - missingok
+      - rotate 7
+      - daily
+      - notifempty
+
 zuul_config_gearman_server_listen_address: 0.0.0.0
 zuul_config_gerrit_server: review.openstack.org
 zuul_config_gerrit_user: ufuktron

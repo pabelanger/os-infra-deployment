@@ -3,16 +3,6 @@
   hosts: jenkins
   remote_user: centos
   pre_tasks:
-    - name: Wait for server ssh
-      wait_for:
-        port: 22
-        delay: 5
-        host: "{{ ansible_ssh_host }}"
-      delegate_to: localhost
-      register: ssh_wait_check
-      until: ssh_wait_check|success
-      retries: 3
-
     - name: Install Jenkins repo.
       copy:
         src: files/jenkins/etc/yum.repos.d/jenkins.repo
@@ -31,6 +21,7 @@
     - ansible-role-ssh
     - ansible-role-jenkins-groovy
     - ansible-role-jenkins-plugins
+    - ansible-role-logrotate
       #    - ansible-role-jenkins-jobs
 
   tasks:
