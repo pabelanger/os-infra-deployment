@@ -7,5 +7,29 @@
     - ansible-role-zuul
     - ansible-role-ssh
     - ansible-role-logrotate
+
+  tasks:
+    - name: Create project config directory.
+      sudo: yes
+      file:
+        group: "{{ ansible_ssh_user }}"
+        mode: 0775
+        owner: "{{ ansible_ssh_user }}"
+        path: "{{ item }}"
+        state: directory
+      with_items:
+        - "{{ project_config_zuul_dir_dest }}"
+      notify: Reload zuul-server
+
+    - name: Rsync project config directory.
+      synchronize:
+        dest: "{{ project_config_zuul_dir_dest }}"
+        perms: yes
+        rsync_opts:
+          - '--delete'
+        src: "{{ project_config_zuul_dir_src }}"
+      when: project_config_zuul_dir_src != ""
+      notify: Reload zuul-server
+
   vars_files:
     - vars/zuul.yaml

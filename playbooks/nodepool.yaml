@@ -4,6 +4,7 @@
   remote_user: centos
 
   roles:
+    - ansible-role-sudoers
     - ansible-role-diskimage-builder
     - ansible-role-nodepool
     - ansible-role-ssh

@@ -16,7 +16,10 @@ zuul_config_gerrit_user: ufuktron
 zuul_config_merger_git_user_email: ufuktron@gmail.com
 zuul_config_merger_git_user_name: ufuktron
 
-zuul_project_config_dir: /home/pabelanger/git/pabelanger/config/zuul/
+project_config_zuul_dir_dest: /opt/project-config/zuul/
+project_config_zuul_dir_src: /home/pabelanger/git/pabelanger/config/zuul/
+
+zuul_config_zuul_layout_config: "{{ project_config_zuul_dir_dest }}"
 
 ssh_user_name: zuul
 ssh_user_home: /var/lib/zuul
