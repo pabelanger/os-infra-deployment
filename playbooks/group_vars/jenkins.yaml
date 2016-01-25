@@ -1,13 +1,23 @@
 ---
-jenkins_plugins_list:
-  - gearman-plugin
-  - zmq-event-publisher
+jenkins_plugins_manager:
+  - name: gearman-plugin
+    version: 0.1.3
+  - name: zmq-event-publisher
+    version: 0.0.2
 
 jenkins_groovy_init_dir: files/jenkins/var/lib/jenkins/init.groovy.d/
-
-jenkins_jobs_project_config_dir: /home/pabelanger/git/pabelanger/config/jenkins/jobs/
 
 nginx_config_include_files: files/jenkins/etc/nginx/conf.d/
 
 ssh_user_name: jenkins
 ssh_user_home: /var/lib/jenkins
+
+# ansible-role-jenkins-job-builder
+#jenkins_job_builder_install_method: pkg
+
+jenkins_job_builder_template_jenkins_jobs_ini_dest: "{{ jenkins_user_home }}/jenkins_jobs.ini"
+jenkins_job_builder_template_jenkins_jobs_ini_group: "{{ jenkins_user_group }}"
+jenkins_job_builder_template_jenkins_jobs_ini_mode: "0440"
+jenkins_job_builder_template_jenkins_jobs_ini_owner: "{{ jenkins_user_name }}"
+
+jenkins_job_builder_file_jobs_src: /home/pabelanger/git/pabelanger/config/jenkins/jobs/

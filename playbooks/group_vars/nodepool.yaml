@@ -1,4 +1,7 @@
 ---
+semodule_te_items:
+  - files/nodepool/opt/ansible-role-semodule/ansible_nginx.te
+
 logrotate_configs:
   - name: nodepool
     log: /var/log/nodepool/*.log
@@ -9,8 +12,7 @@ logrotate_configs:
       - daily
       - notifempty
 
-diskimage_builder_install_method: pip
-diskimage_builder_pip_version: 1.4.0
+diskimage_builder_install_method: pkg
 
 nodepool_config_gearman_servers:
   - host: "{{ hostvars.zuul.ansible_ssh_host }}"

@@ -1,0 +1,10 @@
+module ansible_nginx 1.0;
+
+require {
+        type var_log_t;
+        type httpd_t;
+        class file { read open };
+}
+
+#============= httpd_t ==============
+allow httpd_t var_log_t:file { read open };

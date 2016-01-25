@@ -14,15 +14,24 @@
         key: http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
       sudo: yes
 
+      # Make sure we have EPEL enabled.
+    - name: Ensure EPEL is enabled.
+      yum:
+        pkg: epel-release
+        state: installed
+      sudo: yes
+    - name: EPEL testing
+      command: yum-config-manager --enable epel-testing
+      sudo: yes
+
   roles:
     - ansible-role-jenkins
     - ansible-role-jenkins-job-builder
-    - ansible-role-nginx
-    - ansible-role-ssh
     - ansible-role-jenkins-groovy
     - ansible-role-jenkins-plugins
+    - ansible-role-nginx
+    - ansible-role-ssh
     - ansible-role-logrotate
-      #    - ansible-role-jenkins-jobs
 
   tasks:
     - name: copy jenkins configuration.

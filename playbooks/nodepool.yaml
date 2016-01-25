@@ -3,7 +3,16 @@
   hosts: nodepool
   remote_user: centos
 
+  pre_tasks:
+      # Make sure we have EPEL enabled.
+    - name: Ensure EPEL is enabled.
+      yum:
+        pkg: epel-release
+        state: installed
+      sudo: yes
+
   roles:
+    - ansible-role-semodule
     - ansible-role-sudoers
     - ansible-role-diskimage-builder
     - ansible-role-nodepool
