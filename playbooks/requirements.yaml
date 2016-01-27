@@ -1,23 +1,25 @@
 # ansible-role-diskimage-builder
 - src: https://github.com/openstack/ansible-role-diskimage-builder
-
-# ansible-role-jenkins
-#- src: https://github.com/pabelanger/ansible-role-jenkins
-
-# ansible-role-jenkins-cli
-#- src: https://github.com/pabelanger/ansible-role-jenkins-cli
-
 # ansible-role-jenkins-jobs
 - src: https://github.com/openstack/ansible-role-jenkins-job-builder
-
-# ansible-role-ngnix
-- src: https://github.com/pabelanger/ansible-role-ngnix
-
 # ansible-role-nodepool
 - src: https://github.com/openstack/ansible-role-nodepool
+# ansible-role-zuul
+- src: https://github.com/openstack/ansible-role-zuul
 
+# ansible-role-jenkins
+- src: https://github.com/pabelanger/ansible-role-jenkins
+# ansible-role-jenkins-groovy
+- src: https://github.com/pabelanger/ansible-role-jenkins-groovy
+# ansible-role-jenkins
+- src: https://github.com/pabelanger/ansible-role-jenkins-plugins
+# ansible-role-logrotate
+- src: https://github.com/pabelanger/ansible-role-logrotate
+# ansible-role-nginx
+- src: https://github.com/pabelanger/ansible-role-nginx
+# ansible-role-semodule
+- src: https://github.com/pabelanger/ansible-role-semodule
 # ansible-role-ssh
 - src: https://github.com/pabelanger/ansible-role-ssh
-
-# ansible-role-zuul
-- src: https://github.com/pabelanger/ansible-role-zuul
+# ansible-role-sudoers
+- src: https://github.com/pabelanger/ansible-role-sudoers
